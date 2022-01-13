@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+            <div v-for="user in userList">
+                {{user.name}}===={{user.age}}
+            </div>
+    </div>
+    <script src="vue.min.js"></script>
+    <script src="axios.min.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                //定义变量 值空数组
+                userList:[]
+            },
+            created(){
+                this.getUserList()
+            },
+            methods:{
+                //查询所有用户数据
+                getUserList(){
+                    axios.get("data.json")
+                        .then(response =>{
+                                this.userList=response.data.data.items
+                        } )//请求成功执行then方法
+                        .catch(error =>{
+
+                        })//失败执行catch方法
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

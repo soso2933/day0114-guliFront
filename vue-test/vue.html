@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue测试</title>
+</head>
+<body>
+
+    <div id="app" >
+       <!-- <div v-html="content"></div>
+       <div v-text="content"></div>
+        <input type="button" value="测试v-on" @click="doit"> -->
+
+        <!-- <button @click="sub">-</button>
+        <span>{{num}}</span>
+        <button @click="add">+</button> -->
+        <ul>
+            <li v-for="item in fruit">
+                我喜欢吃 {{item}} </li>
+        </ul>
+    </div>
+    
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<script>
+    var app = new Vue({
+  el: '#app',
+  data: {
+    message: '你好 ，小草!',
+    age: 16,
+    num:1,
+    student:{
+        name:"小林",
+        age:16
+    },
+    fruit:["苹果","香蕉","橘子"],
+    content:"<a href='http://www.baidu.com'> 百度一下你就知道！</a>"
+  },
+  methods:{
+      doit:function(){
+        alert("测试v-on");
+      },
+      add:function(){
+
+      },
+      sub:function(){
+
+      }
+  }
+})
+</script>
+</body>
+</html>
